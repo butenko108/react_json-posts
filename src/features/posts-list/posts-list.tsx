@@ -1,5 +1,5 @@
 import { CircleArrowURL } from 'assets';
-import { PostCard } from 'features';
+import { LoadingError, PostCard } from 'features';
 import { Post } from 'shared/types';
 import { Button, Typography } from 'shared/ui';
 
@@ -7,9 +7,10 @@ interface Props {
   posts: Post[];
   className?: string;
   onRefetch: () => void;
+  isFetching: boolean;
 }
 
-export const PostsList = ({ posts, className, onRefetch }: Props) => {
+export const PostsList = ({ posts, className, onRefetch, isFetching }: Props) => {
   return (
     <div className={className}>
       <div className="mb-10 flex items-center justify-between">
@@ -17,7 +18,7 @@ export const PostsList = ({ posts, className, onRefetch }: Props) => {
           Posts list
         </Typography>
 
-        <Button onClick={onRefetch}>
+        <Button onClick={onRefetch} isDisabled={isFetching}>
           <img
             src={CircleArrowURL}
             alt="refetch posts button"
@@ -26,13 +27,15 @@ export const PostsList = ({ posts, className, onRefetch }: Props) => {
         </Button>
       </div>
 
-      <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        {posts.map(post => (
-          <li key={post.id}>
-            <PostCard post={post} />
-          </li>
-        ))}
-      </ul>
+      <LoadingError isLoading={isFetching} isFullHeight={false} className="min-h-[684px]">
+        <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          {posts.map(post => (
+            <li key={post.id}>
+              <PostCard post={post} />
+            </li>
+          ))}
+        </ul>
+      </LoadingError>
     </div>
   );
 };

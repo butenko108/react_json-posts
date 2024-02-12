@@ -27,7 +27,7 @@ export const PostsList = ({ posts, className, onRefetch, isFetching }: Props) =>
         </Button>
       </div>
 
-      <LoadingError isLoading={isFetching} isFullHeight={false} className="min-h-[684px]">
+      <LoadingError isLoading={isFetching} isFullHeight={false} className="min-h-[1384px] md:min-h-[684px]">
         <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {posts.map(post => (
             <li key={post.id}>

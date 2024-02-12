@@ -7,18 +7,25 @@ import { useGetPostsByPageQuery } from './redux/posts-api';
 
 function App() {
   const [currentPageNumber, setCurrentPageNumber] = useState(1);
-  const { data, isLoading, isError, refetch } = useGetPostsByPageQuery(currentPageNumber);
+  const { data, isLoading, isError, refetch, isFetching } = useGetPostsByPageQuery(currentPageNumber);
 
   return (
     <main className="min-h-screen bg-night-sky">
-      <LoadingError isLoading={isLoading} isError={isError} size="l">
-        <Container isPadding className="py-10">
-          {data && <PostsList posts={data.posts} className="mb-10" />}
+      <Container isPadding className="py-10">
+        <LoadingError isLoading={isLoading} isError={isError} size="l">
           {data && (
-            <Pagination currentPageNumber={currentPageNumber} onChange={setCurrentPageNumber} total={data.totalPages} />
+            <>
+              <PostsList posts={data?.posts} className="mb-10" onRefetch={refetch} isFetching={isFetching} />
+
+              <Pagination
+                currentPageNumber={currentPageNumber}
+                onChange={setCurrentPageNumber}
+                total={data.totalPages}
+              />
+            </>
           )}
-        </Container>
-      </LoadingError>
+        </LoadingError>
+      </Container>
     </main>
   );
 }

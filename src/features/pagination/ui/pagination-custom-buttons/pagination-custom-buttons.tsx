@@ -37,7 +37,7 @@ export const PaginationCustomButtons = ({ page, type, currentPageNumber, total }
         >
           <img
             src={ChevronLeftURL}
-            alt="chevron left"
+            alt="prev button"
             className={cn('fill-night-sky', { 'opacity-60': isPrevDisabled })}
           />
         </Button>
@@ -51,7 +51,7 @@ export const PaginationCustomButtons = ({ page, type, currentPageNumber, total }
         >
           <img
             src={ChevronLeftURL}
-            alt="chevron left"
+            alt="next button"
             className={cn('rotate-180 fill-night-sky', { 'opacity-60': isLastDisabled })}
           />
         </Button>
@@ -59,7 +59,7 @@ export const PaginationCustomButtons = ({ page, type, currentPageNumber, total }
 
     case 'jump-prev':
     case 'jump-next':
-      return <Button className={'bg-dark-elf text-white-smoke hover:bg-night-black'}>...</Button>;
+      return <Button className="bg-dark-elf text-white-smoke hover:bg-night-black">...</Button>;
 
     default:
       return <></>;

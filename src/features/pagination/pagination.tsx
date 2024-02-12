@@ -25,7 +25,7 @@ export const Pagination = ({ currentPageNumber, onChange, total }: Props) => {
         total={total}
         current={currentPageNumber}
         onChange={onChange}
-        className="flex items-center gap-[10px]"
+        className="flex items-center gap-2"
         itemRender={(page, type) => (
           <PaginationCustomButtons page={page} type={type} currentPageNumber={currentPageNumber} total={total} />
         )}

@@ -59,7 +59,7 @@ export const PaginationCustomButtons = ({ page, type, currentPageNumber, total }
 
     case 'jump-prev':
     case 'jump-next':
-      return <Button className={'bg-dark-elf text-white-smoke hover:bg-night-black'}>...</Button>;
+      return <Button className="bg-dark-elf text-white-smoke hover:bg-night-black">...</Button>;
 
     default:
       return <></>;

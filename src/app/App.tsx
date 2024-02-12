@@ -13,7 +13,7 @@ function App() {
     <main className="min-h-screen bg-night-sky">
       <LoadingError isLoading={isLoading} isError={isError} size="l">
         <Container isPadding className="py-10">
-          {data && <PostsList posts={data.posts} className="mb-10" />}
+          {data && <PostsList posts={data.posts} className="mb-10" onRefetch={refetch} />}
           {data && (
             <Pagination currentPageNumber={currentPageNumber} onChange={setCurrentPageNumber} total={data.totalPages} />
           )}

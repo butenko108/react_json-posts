@@ -8,6 +8,7 @@ Technical assignment:
 5. Implement the Refetch data button
 6. Add pagination
 7. Deploy to Vercel
+8. Mobile/Desktop layout
 
 Interesting things:
 1. JSONPlaceholder API

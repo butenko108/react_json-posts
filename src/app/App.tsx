@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { useGetPostsByPageQuery } from './store/posts-api';
+import { useGetPostsByPageQuery } from './redux/posts-api';
 
 function App() {
   const [page, setPage] = useState(1);

@@ -5,7 +5,7 @@ Technical assignment:
 2. Display the posts
 3. Use RTK Query
 4. Handling errors and loadings
-5. Implement Refetch data button
+5. Implement the Refetch data button
 6. Add pagination
 7. Deploy to Vercel
 

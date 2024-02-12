@@ -14,8 +14,6 @@ module.exports = {
         'washed-black': '#202329',
         'tangled-web': '#B2B2B2',
         'night-black': '#303136',
-        poinciana: '#D63D2E',
-        'verdant-fields': '#55CC44',
       },
     },
   },

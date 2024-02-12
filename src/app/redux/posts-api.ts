@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
+import { POSTS_ON_PAGE } from 'shared/constants';
 import { Post } from 'shared/types';
 
 import { BASE_URL } from './base-url';
@@ -8,7 +9,7 @@ const POST_URL = 'posts/';
 
 interface GetPostsByPage {
   posts: Post[];
-  totalPosts: string;
+  totalPages: number;
 }
 
 export const postsApi = createApi({
@@ -18,9 +19,9 @@ export const postsApi = createApi({
       query: (page = 1) => `${POST_URL}?_page=${page}`,
       extraOptions: { maxRetries: 2 },
       transformResponse: (response: Post[], meta) => {
-        const totalPosts = meta?.response?.headers.get('x-total-count') as string;
+        const totalPages = Number(meta?.response?.headers.get('x-total-count')) / POSTS_ON_PAGE;
 
-        return { posts: response, totalPosts };
+        return { posts: response, totalPages };
       },
     }),
   }),
